@@ -40,7 +40,7 @@ int main() {
     }
 
     // 結果の出力
-    cout << "1万回共通するまでにかかった試行回数: " << totalIterations << endl;
+    cout << "19200000回共通するまでにかかった試行回数: " << totalIterations << endl;
     for (int i = 1; i <= 6; ++i) {
         cout << "値 " << i << " が共通した回数: " << commonValuesCount[i] << endl;
     }
