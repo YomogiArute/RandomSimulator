@@ -3,9 +3,13 @@
 #include <ctime>
 using namespace std;
 
-// 1つ目のアルゴリズム: std::rand() を使用
+// 1つ目のアルゴリズム: サイコロの面数に基づいた乱数生成（std::rand()を使用）
 int randomAlgorithm1() {
-    return std::rand() % 6 + 1;  // 1から6のランダムな値を生成
+    int x = 7;  // 6面を超える値で初期化
+    while (x > 6) {  // 1から6までの乱数を生成
+        x = 1 + std::rand() / ((RAND_MAX + 1u) / 6);
+    }
+    return x;
 }
 
 // 2つ目のアルゴリズム: std::mt19937 を使用
@@ -28,8 +32,8 @@ int main() {
 
     // 共通した回数が1万回になるまでループ
     while (commonCount < targetCommonCount) {
-        int value1 = randomAlgorithm1();
-        int value2 = randomAlgorithm2();
+        int value1 = randomAlgorithm1();  // 1つ目のアルゴリズムを使用
+        int value2 = randomAlgorithm2();  // 2つ目のアルゴリズムを使用
 
         if (value1 == value2) {
             ++commonCount;  // 共通した値をカウント
